@@ -1,6 +1,8 @@
 
 <ul>
-  <li><a href="index.php">Home<a/></li>
-  <li><a href="Sportfest.php">Sportfest</a></li>
-  <li><a href="Lehrer.php">Lehrer</a></li>
+  <li><a href="index.php?section=Startseite">Home<a/></li>
+  <li><a href="index.php?section=Sportfest">Sportfest</a></li>
+  <li><a href="index.php?section=Lehrer">Lehrer</a></li>
+  <?php if($db->isUserLoggedIn()) {?><li><a href="index.php?section=Logout">Logout</a></li><?php } ?>
+  <?php if($db->isUserLoggedIn()) {?><li><a href="index.php?section=Verfassen">Verfassen</a></li><?php } ?>
 </ul>

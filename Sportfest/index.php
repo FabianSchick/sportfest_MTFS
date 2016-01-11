@@ -1,16 +1,24 @@
 <?php
-  if(isset($_GET["section"])){
-    $section = $_GET("section);
+  session_start();
+
+  if(isset($_GET["section"]))
+  {
+    $section = $_GET["section"];
   } else{
     $section ="";
   }
+
+  require_once 'mysql.php';
+  $db = new DB();
+
 ?>
 
 <html>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css"href="style.css">
+
 <head>
   <title>Schul-Website</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css"href="style.css">
 </head>
 
 <body>
@@ -18,21 +26,16 @@
     <header class = "shadow">
 
     </header>
-    <div id="containerMenuContent" class="shadow">
       <nav>
         <?php include("menu.php"); ?>
       </nav>
-      <div id="content">
-        <? php include("Startseite.php"); ?>
-      </div>
+      <main>
+        <?php include("sites.php"); ?>
+      </main>
     </div>
-  </div>
 
-  <footer>
-    <?php include ("footer.php");?>
-  </footer>
-
-
-</body>
-
+    <footer>
+      <?php include ("footer.php");?>
+    </footer>
+  </body>
 </html>

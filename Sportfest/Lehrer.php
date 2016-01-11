@@ -1,35 +1,49 @@
-<html>
-<head>
-  <title>Schul-Website</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css"href="style.css">
-</head>
-
-<body>
-  <div id="wrapper">
-    <header class = "shadow">
-
-    </header>
-    <div id="containerMenuContent" class="shadow">
-      <nav>
-        <?php include("menu.php"); ?>
-      </nav>
-      <div id="content">
-        hier können wir jeglichen Mist rein schreiben.<br>
-        Ein Pferd hat sich im Spiegel angeschaut und gemerkt, dass es ein langes
-          Gesicht hat<br> <br><br><br><br>
-
-        Spaß bei Seite: das Feld hat jetzt eine dynamische Länge und erweitert sich,
-          wenn mehr Inhalt reinkommt!
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <?php include ("footer.php");?>
-  </footer>
+<h1>Hier ist der Lehrer Login<h1/>
 
 
-</body>
 
-</html>
+<?php
+
+  if($db->isUserLoggedIn() === TRUE){
+    echo"Du bist bereits eingeloggt - <a href='index.php?section=Logout' alt = 'Ausloggen'>(ausloggen)</a>";
+  } else{
+    if(isset($_POST['einloggen'])){
+      $mail = $_POST['email'];
+      $passwort = sha1($_POST['passwort']);
+
+      if($db->login($mail, $passwort) === TRUE){
+        echo"Erfolgreich eingeloggt";
+      } else{
+        echo"Einloggen fehlgeschlagen";
+      }
+    }
+?>
+
+<form action="index.php?section=Lehrer" method="POST">
+  <table>
+    <tr>
+        <td>
+          E-Mail:
+        </td>
+        <td>
+          <input type="email" name = "email" required  />
+        </td>
+    </tr>
+    <tr>
+        <td>
+          Passwort:
+        </td>
+        <td>
+          <input type="password" name = "passwort" required  />
+        </td>
+    </tr>
+    <tr>
+        <td>
+          <input type="submit" name = "einloggen" value="Einloggen" />
+        </td>
+    </tr>
+  </table>
+</form>
+<?php
+ }
+?>

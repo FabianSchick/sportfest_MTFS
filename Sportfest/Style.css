@@ -15,9 +15,7 @@ body{
 #wrapper{
   margin-left: auto;
   margin-right: auto;
-  //background-color: #F00;
   width: 900px;
-  //height: 900px;
 }
 
 header{
@@ -29,14 +27,9 @@ header{
   background-size: cover;
 }
 
-#containerMenuContent{
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  width: 900px;
-}
 
-footer{
+
+body > footer{
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
@@ -70,7 +63,7 @@ nav li{
 
 nav ul li{
   height: 30px;
-  width: 190px;
+  width: 160px;
   color: #FFF;
   display: block;
   float: left;
@@ -83,7 +76,7 @@ nav ul li a{
 }
 
 
-#content{
+main{
   width: 880px;
   //height: 550px;
   background-color: #E9E9E9;
@@ -97,4 +90,14 @@ nav ul li a{
   -webkit-box-shadow: 0pc 0px 10px #000;
   -moz-box-shadow: 0pc 0px 10px #000;
   box-shadow:0pc 0px 10px #000;
+}
+
+article footer{
+  font-size: 12px;
+  font-family: Calibri, Rotis Sans Serif, sans-serif;
+  color: black;
+  background-color: #FBF2EF;
+  border: 1px solid #F7BE81;
+  padding: 5px;
+  margin-bottom: 40px;
 }

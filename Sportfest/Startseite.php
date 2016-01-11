@@ -1,6 +1,12 @@
-hier können wir jeglichen Mist rein schreiben.<br>
-Ein Pferd hat sich im Spiegel angeschaut und gemerkt, dass es ein langes
-  Gesicht hat<br> <br><br><br><br>
+<?php
+  $entries = $db->getAllEntries();
 
-Spaß bei Seite: das Feld hat jetzt eine dynamische Länge und erweitert sich,
-  wenn mehr Inhalt reinkommt!
+  foreach($entries as $entry){
+    echo "<article>";
+      echo "<h1>" . $entry['Ueberschrift'] . "</h1>";
+      echo "<p>" . $entry['Inhalt'] . "</p>";
+      echo "<footer> Geschrieben von: <b>" . $entry['Autor'] . "</b> am " .$entry['Datum'] . "</p>";
+    echo "</article>";
+  }
+
+?>
