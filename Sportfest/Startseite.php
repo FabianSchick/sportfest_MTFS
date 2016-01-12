@@ -1,3 +1,4 @@
+
 <?php
   $entries = $db->getAllEntries();
 

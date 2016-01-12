@@ -1,4 +1,4 @@
-<h1> News Verfassen </h1>
+
 
 <?php
   if(isset($_POST['eintragen'])){
@@ -15,6 +15,7 @@
   }
 ?>
 
+<h1> News Verfassen </h1>
 <form action="index.php?section=Verfassen" method="POST">
   <table border="0">
     <tr>
@@ -37,7 +38,6 @@
         <td></td>
         <td><input type="submit" value="Eintragen" name="eintragen"/></td>
     </tr>
-
-
+  </table>
 
 </form>

@@ -22,6 +22,12 @@
 </head>
 
 <body>
+
+
+  
+
+
+
   <div id="wrapper">
     <header class = "shadow">
 
@@ -38,4 +44,6 @@
       <?php include ("footer.php");?>
     </footer>
   </body>
+
+
 </html>
