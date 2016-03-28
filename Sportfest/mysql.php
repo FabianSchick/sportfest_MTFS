@@ -16,7 +16,7 @@
     }
 
     function isUserLoggedIn(){
-        $stmt = self::$_db->prepare("SELECT UserID FROM users WHERE SessionID=:sID");
+        $stmt = self::$_db->prepare("SELECT UserID FROM users WHERE session_ID=:sID");
         $sID = session_id();
         $stmt->bindParam(":sID", $sID);
         $stmt->execute();
@@ -35,7 +35,7 @@
       $stmt->execute();
 
       if($stmt->rowCount()===1){
-        $stmt = self::$_db->prepare("UPDATE users SET SessionID=:sID WHERE Email=:userMail AND Passwort=:pw");
+        $stmt = self::$_db->prepare("UPDATE users SET session_ID=:sID WHERE Email=:userMail AND Passwort=:pw");
         $sID = session_id();
         $stmt->bindParam(":sID", $sID);
         $stmt->bindParam(":userMail", $userMail);
@@ -49,7 +49,7 @@
     }
 
     function logout(){
-      $stmt = self::$_db->prepare("UPDATE users SET SessionID='' WHERE SessionID=:sID");
+      $stmt = self::$_db->prepare("UPDATE users SET session_ID='' WHERE session_ID=:sID");
       $sID = session_id();
       $stmt->bindParam(":sID", $sID);
       $stmt->execute();
