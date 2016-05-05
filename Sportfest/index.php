@@ -22,12 +22,6 @@
 </head>
 
 <body>
-
-
-  
-
-
-
   <div id="wrapper">
     <header class = "shadow">
 
