@@ -24,7 +24,15 @@
 <body>
   <div id="wrapper">
     <header class = "shadow">
-
+		<?php
+		
+		if_($section == 'Logout'){
+		
+			header('location:'.$_SERVER['PHP_SELF']); 
+			
+		}
+		
+		?>
     </header>
       <nav>
         <?php include("menu.php"); ?>

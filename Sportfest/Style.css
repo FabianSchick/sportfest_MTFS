@@ -11,6 +11,9 @@ body{
 
 }
 
+#bestenliste{
+	background-image: url(anzeige.jpg);
+}
 
 #wrapper{
   margin-left: auto;
@@ -77,9 +80,9 @@ nav ul li a{
 
 
 main{
-  width: 880px;
+  width: 80px;
   //height: 550px;
-  background-color: #E9E9E9;
+  background-color: #FFFFFF;
   padding-left: 10px;
   padding-top: 10px;
   padding-right: 10px;
