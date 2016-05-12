@@ -16,6 +16,11 @@
 <html>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css"href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- Bootstrap -->
+   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+   <script src="http://code.jquery.com/jquery.js"></script>
+
 
 <head>
   <title>Schul-Website</title>
@@ -24,7 +29,7 @@
 <body>
 
 
-  
+
 
 
 
@@ -33,8 +38,12 @@
 
     </header>
       <nav>
-        <?php include("menu.php"); ?>
+        <div class="dropdown">
+          <?php include("menu.php"); ?>
+        </div>
       </nav>
+
+
       <main>
         <?php include("sites.php"); ?>
       </main>
