@@ -47,7 +47,10 @@
 
 
       <main>
+	  <div class = "container">
         <?php include("sites.php"); ?>
+		</div>
+		
       </main>
     </div>
 

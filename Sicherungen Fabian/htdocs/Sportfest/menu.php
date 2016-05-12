@@ -1,19 +1,13 @@
 <ul class="nav nav-tabs">
   <li class="dropdown">
     <a  class="dropdown-toggle" data-toggle="dropdown" href="index.php?section=Startseite"> Home
-        <b class="caret"></b>
+        <span class="caret"></span>
         <a/>
       <ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
-          <li class = "active"><a tableindex ="-1" href="#">Über uns</a></li>
-      </ul>
-      <ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
-          <li class = "active"><a tableindex ="-1" href="#">Bildungsmöglichkeiten</a></li>
-      </ul>
-      <ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
-          <li class = "active"><a tableindex ="-1" href="#">Lehrer</a></li>
-      </ul>
-      <ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
-          <li class = "active"><a tableindex ="-1" href="#">Impressum</a></li>
+          <li><a tableindex ="-1" href="#">Über uns</a></li>
+          <li><a tableindex ="-1" href="#">Bildungsmöglichkeiten</a></li>
+          <li><a tableindex ="-1" href="#">Lehrer</a></li>
+          <li><a tableindex ="-1" href="#">Impressum</a></li>
       </ul>
     </li>
 
@@ -22,35 +16,28 @@
           <b class="caret"></b>
           <a/>
         <ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
-            <li class = "active"><a tableindex ="-1" href="#">Informationen</a></li>
-        </ul>
-        <ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
-            <li class = "active"><a tableindex ="-1" href="#">Ergebnisse</a></li>
-        </ul>
-        <ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
-            <li class = "active"><a tableindex ="-1" href="#">Rekorde</a></li>
+            <li"><a tableindex ="-1" href="#">Informationen</a></li>
+            <li><a tableindex ="-1" href="#">Ergebnisse</a></li>
+            <li><a tableindex ="-1" href="#">Rekorde</a></li>
         </ul>
       </li>
 
-      <li class="dropdown">
+    <li role = "presentation" class="dropdown">
         <a  class="dropdown-toggle" data-toggle="dropdown" href="index.php?section=Startseite"> Lehrer
             <b class="caret"></b>
             <a/>
-          <ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
-              <li class = "active"><a tableindex ="-1" href="#">Login</a></li>
+			<ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
+              <li><a tableindex ="-1" href="#">Login</a></li>
+              <li><a tableindex ="-1" href="#">Logout</a></li>
           </ul>
-          <ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
-              <li class = "active"><a tableindex ="-1" href="#">Logout</a></li>
-          </ul>
-        </li>
+    </li>
 
   <li><a href="index.php?section=Kontakt">Kontakt</a></li>
-
   <li class="dropdown">
-    <a  class="dropdown-toggle" data-toggle="dropdown" href="index.php?section=Startseite"> Inhalte aktualisieren
+		<a  class="dropdown-toggle" data-toggle="dropdown" href="index.php?section=Startseite"> Inhalte aktualisieren
         <b class="caret"></b>
-        <a/>
-      <ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
+		<a/>
+		<ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
           <li class = "active"><a tableindex ="-1" href="#">Inhalte aktualisieren</a></li>
       </ul>
     </li>
