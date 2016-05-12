@@ -6,9 +6,8 @@
         Home
         <b class="caret"></b>
         <a/>
-      <ul class="dropdown-menu">
-          <a class="menu"
-          href="Über uns">
+      <ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
+          <li class = "active"><a tableindex ="-1" href="index.php?section=Sportfest">Sportfest</a></li>
       </ul>
     </li>
   <li><a href="index.php?section=Sportfest">Sportfest</a></li>
