@@ -1,10 +1,47 @@
+<ul class="nav nav-tabs">
+  <li class="dropdown">
+    <a  class="dropdown-toggle" data-toggle="dropdown" href="index.php?section=Startseite"> Home
+        <span class="caret"></span>
+        <a/>
+      <ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
+          <li><a tableindex ="-1" href="#">Über uns</a></li>
+          <li><a tableindex ="-1" href="#">Bildungsmöglichkeiten</a></li>
+          <li><a tableindex ="-1" href="#">Lehrer</a></li>
+          <li><a tableindex ="-1" href="#">Impressum</a></li>
+      </ul>
+    </li>
 
-<ul>
-  <li><a href="index.php?section=Startseite">Home<a/></li>
-  <li><a href="index.php?section=Sportfest">Sportfest</a></li>
-  <li><a href="index.php?section=Lehrer">Lehrer</a></li>
+    <li class="dropdown">
+      <a  class="dropdown-toggle" data-toggle="dropdown" href="index.php?section=Startseite"> Sportfest
+          <b class="caret"></b>
+          <a/>
+        <ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
+            <li"><a tableindex ="-1" href="#">Informationen</a></li>
+            <li><a tableindex ="-1" href="#">Ergebnisse</a></li>
+            <li><a tableindex ="-1" href="#">Rekorde</a></li>
+        </ul>
+      </li>
+
+    <li role = "presentation" class="dropdown">
+        <a  class="dropdown-toggle" data-toggle="dropdown" href="index.php?section=Startseite"> Lehrer
+            <b class="caret"></b>
+            <a/>
+			<ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
+              <li><a tableindex ="-1" href="#">Login</a></li>
+              <li><a tableindex ="-1" href="#">Logout</a></li>
+          </ul>
+    </li>
+
   <li><a href="index.php?section=Kontakt">Kontakt</a></li>
-  <li><a href="../SportfestNEU/SportfestEingabeMaskeSchueler.jsp">Eingabe</a></li>
+  <li class="dropdown">
+		<a  class="dropdown-toggle" data-toggle="dropdown" href="index.php?section=Startseite"> Inhalte aktualisieren
+        <b class="caret"></b>
+		<a/>
+		<ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
+          <li class = "active"><a tableindex ="-1" href="#">Inhalte aktualisieren</a></li>
+      </ul>
+    </li>
+
   <?php if($db->isUserLoggedIn()) {?><li><a href="index.php?section=Logout">Logout</a></li><?php } ?>
   <?php if($db->isUserLoggedIn()) {?><li><a href="index.php?section=Verfassen">Verfassen</a></li><?php } ?>
 </ul>
