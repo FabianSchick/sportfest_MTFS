@@ -28,36 +28,40 @@
   <title>Schul-Website</title>
 </head>
 
+
 <body>
 
+<div class="container">
 
 
 
 
 
-  <div id="wrapper">
     <header class = "shadow">
 
     </header>
-      <nav>
-        <div class="dropdown">
+      <nav class="navbar navbar-inverse ">
+	  
+        
           <?php include("menu.php"); ?>
-        </div>
+       
       </nav>
 
 
-      <main>
-	  <div class = "container">
+     <div class="panel panel-default">
+  <div class="panel-body"> 
         <?php include("sites.php"); ?>
 		</div>
-		
-      </main>
-    </div>
 
-    <footer>
-      <?php include ("footer.php");?>
-    </footer>
+    
+     <div class="panel-footer"> 
+	 <div class="container text-center">
+	 <?php include ("footer.php");?></div>
+	 </div>
+</div>
+   
+
   </body>
-
+</div>
 
 </html>
