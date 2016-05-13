@@ -11,6 +11,7 @@
             <li><a href="#">Impressum</a></li>
           </ul>
     </li>
+<<<<<<< Updated upstream
 	
 	
 	<li class="dropdown">
@@ -28,6 +29,27 @@
           <ul class="dropdown-menu">
             <li><a href="index.php?section=Lehrer">Login</a></li>
             <?php if($db->isUserLoggedIn()) {?><li><a href="index.php?section=Logout">Logout</a></li><?php } ?>
+=======
+
+    <li class="dropdown">
+      <a  class="dropdown-toggle" data-toggle="dropdown" href="index.php?section=Startseite"> Sportfest
+          <b class="caret"></b>
+          <a/>
+        <ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
+            <li"><a tableindex ="-1" href="#">Informationen</a></li>
+            <li><a tableindex ="-1" href="#">Ergebnisse</a></li>
+            <li><a tableindex ="-1" href="#">Rekorde</a></li>
+        </ul>
+      </li>
+
+    <li role = "presentation" class="dropdown">
+        <a  class="dropdown-toggle" data-toggle="dropdown" href="index.php?section=Startseite"> Lehrer
+            
+            <a/>
+			<ul class="dropdown-menu" role= "menu" aria-labelledby = "dropdownMenu">
+              <li><a tableindex ="-1" href="#">Login</a></li>
+              <li><a tableindex ="-1" href="#">Logout</a></li>
+>>>>>>> Stashed changes
           </ul>
     </li>
 	
