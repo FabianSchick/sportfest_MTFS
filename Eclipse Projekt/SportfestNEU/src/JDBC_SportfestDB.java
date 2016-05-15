@@ -1,3 +1,4 @@
+
 import java.sql.*;
 
 public class JDBC_SportfestDB {
@@ -10,7 +11,7 @@ public class JDBC_SportfestDB {
 	
 	public static void doIT(){
 		try {
-			Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/newsblog", "root", "");
+			Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/newsblog", "root", "secret");
 			
 			Statement myStmt = myCon.createStatement();
 			

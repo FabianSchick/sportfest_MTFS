@@ -9,7 +9,6 @@
 <body>
 
 
-
 <jsp:plugin type="applet"
             code="AusgabeBestenliste.class"
             codebase="SportfestJ/Applets/"

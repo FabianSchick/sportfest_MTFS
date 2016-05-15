@@ -8,7 +8,7 @@ public class SchülerHinzufügen {
 
 	public static void main(String[] args) {
 		try {
-			Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/newsblog", "root", "");
+			Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/newsblog", "root", "secret");
 			
 			Statement myStmt = myCon.createStatement();
 			

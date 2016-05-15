@@ -56,7 +56,7 @@
     
      <div class="panel-footer"> 
 	 <div class="container text-center">
-	 <?php include ("footer.php");?></div>
+	 <?php include ("footer.html");?></div>
 	 </div>
 </div>
    

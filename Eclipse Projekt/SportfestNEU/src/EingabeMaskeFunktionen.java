@@ -13,7 +13,7 @@ public class EingabeMaskeFunktionen{
 	
 		try{
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/newsblog", "root", "");
+		Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/newsblog", "root", "secret");
 		
 		Statement myStmt = myCon.createStatement();
 		String sq2 = "Select * FROM schuelersportfest WHERE schuelerNachname = '" + nachname + "' AND schuelerVorname = '" + vorname + "' AND schuelerStufe = '" + stufe + "'AND schuelerKlasse = '" + klasse + "'";
@@ -61,24 +61,29 @@ public class EingabeMaskeFunktionen{
 	
 	
 	
-	public static boolean ergebnisEintragen(String Sprinten, String Dauerlauf, String Weitwurf, String Weitsprung){
+	public static boolean ergebnisEintragen(String Sprinten, String Dauerlauf, String Weitwurf, String Weitsprung, String Kugelstoßen, String Schlagball){
 		try {
-			String[] sportarten = {"Sprinten", "Dauerlauf", "Weitwurf", "Weitsprung"};
+			String[] sportarten = {"Sprinten", "Dauerlauf", "Weitwurf", "Weitsprung", "Kugelstoßen", "Schlagball"};
 			double[] ergebnisse = {Double.parseDouble(Sprinten), Double.parseDouble(Dauerlauf), Double.parseDouble(Weitwurf), Double.parseDouble(Weitsprung)};
-			int pktSprint = 200 - ((int)(((Double.parseDouble(Sprinten)-10.0)/0.1)*10));
-			int pktDauerlauf = 200 - ((int)(Double.parseDouble(Dauerlauf)-20.0/0.1*20));
+			int pktSprint = hundertMeterSprint(Double.parseDouble(Sprinten));
+			int pktDauerlauf =dreitausendMeter(Integer.parseInt(Dauerlauf));
 			int pktWeitwurf = 200 - ((int)(Double.parseDouble(Weitwurf)*-1+30.0/0.1*10));
-			int pktWeitsprung = 200 - ((int)(Double.parseDouble(Weitsprung)*-1+30.0/0.1*10));
+			int pktWeitsprung = weitsprung(Integer.parseInt(Weitsprung));
+			int pktKugelstoßen = kugelstossen(Integer.parseInt(Kugelstoßen));
+			int pktSchlagball = schlagball(Integer.parseInt(Schlagball));
 			
-			int[] punkte = new int[4];
+			int[] punkte = new int[6];
 			punkte[0] = pktSprint;
 			punkte[1] = pktDauerlauf;
 			punkte[2] = pktWeitwurf;
 			punkte[3] = pktWeitsprung;
+			punkte[4] = pktKugelstoßen;
+			punkte[5] = pktSchlagball;
+			
 		Class.forName("com.mysql.jdbc.Driver");
 		
 		
-		Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/newsblog", "root", "");
+		Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/newsblog", "root", "secret");
 		
 		Statement myStmt = myCon.createStatement();
 		String sq1 = "";
@@ -106,7 +111,7 @@ public class EingabeMaskeFunktionen{
 		}
 	}
 	
-	public static BestenlisteObjekt bestenListeSportfestGesamt(){
+	public static BestenlisteObjekt bestenListeSportfestObj(){
 		int[] id = new int[3];
 		int[] punkte = new int[3];
 		String [] vorname = new String[3];
@@ -118,10 +123,10 @@ public class EingabeMaskeFunktionen{
 		
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/newsblog", "root", "");
+			Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/newsblog", "root", "secret");
 			
 			Statement myStmt = myCon.createStatement();
-			myStmt.executeUpdate("CREATE VIEW V_SportfestErgebnisse AS SELECT schuelersportfest.schuelerID, ergebnissesportfest.sportfestID, schuelersportfest.SchuelerNachname, schuelersportfest.SchuelerVorname, schuelersportfest.SchuelerStufe, schuelersportfest.SchuelerKlasse, ergebnissesportfest.Punkte FROM schuelersportfest JOIN ergebnissesportfest ON schuelersportfest.schuelerID = ergebnissesportfest.SchuelerID");	
+			myStmt.executeUpdate("CREATE VIEW V_SportfestErgebnisse AS SELECT schuelersportfest.schuelerID, ergebnissesportfest.sportfestID, schuelersportfest.SchuelerNachname, schuelersportfest.SchuelerVorname, schuelersportfest.SchuelerStufe, schuelersportfest.SchuelerKlasse, ergebnissesportfest.Punkte WHERE Schuelersportfest.Schuelerklasse = a AND Schuelersportfest.Schuelerstufe = 11 FROM schuelersportfest JOIN ergebnissesportfest ON schuelersportfest.schuelerID = ergebnissesportfest.SchuelerID");	
 
 			ResultSet myRes = myStmt.executeQuery("Select schuelerID, SchuelerNachname, SchuelerVorname, SchuelerStufe, SchuelerKlasse, sum(Punkte) From V_SportfestErgebnisse WHERE sportfestID = 1 group by schuelerID Order by sum(punkte) DESC");
 			
@@ -147,5 +152,60 @@ public class EingabeMaskeFunktionen{
 			}
 		
 	}
+	
+	private static int hundertMeterSprint (double sekunden){
+		   if (sekunden > 23.4) {
+		     return 200;
+		     }
+		   else if (sekunden < 10.5){
+		     return 0;
+		   }
+		   else {
+		     return (int) (-250 * Math.log(sekunden) + 790);
+		   }
+		 }
+
+		 private static int dreitausendMeter (int sekunden){
+		   if (sekunden > 492) {
+		     return (int) (873*Math.pow(Math.E, -0.003*sekunden));
+		   }
+		   else return 200;
+		 }
+
+		 private static int weitsprung (int meter){
+		   if (meter < 1.33){
+		     return 0;
+		   }
+		   else if (meter > 8.05){
+		     return 200;
+		   }
+		   else {
+		     return (int)(29.76 * meter - 39.58);
+		   }
+		 }
+
+		 private static int schlagball (int meter){
+		   if (meter < 8){
+		     return 0;
+		   }
+		   else if (meter > 80){
+		     return 200;
+		   }
+		   else {
+		     return (int)(2.78 * meter - 22.24);
+		   }
+		 }
+
+		 private static int kugelstossen (int meter){
+		   if (meter < 2.1){
+		     return 0;
+		   }
+		   else if (meter > 20.5){
+		     return 200;
+		   }
+		   else {
+		     return (int)(10.87 * meter - 22.84);
+		   }
+		 }
 	
 }

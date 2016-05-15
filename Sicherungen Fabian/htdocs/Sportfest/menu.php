@@ -31,7 +31,7 @@
     </li>	
 	
 	
-        <<li><a href="index.php?section=Events">Events</a></li>
+    <li><a href="index.php?section=Events">Events</a></li>
 	<li><a href="index.php?section=Kontakt">Kontakt</a></li>
 	
 	<?php if($db->isUserLoggedIn()) {?>
