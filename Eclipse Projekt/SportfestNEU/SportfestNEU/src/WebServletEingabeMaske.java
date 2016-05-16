@@ -23,7 +23,7 @@ public class WebServletEingabeMaske extends HttpServlet {
 		}
 		else if(s.equals("Bitte tragen Sie die Daten ein")){
 			System.out.println("BIS hierher klappt es!");
-			//AusgabeBestenliste.zeichne();
+			AusgabeBestenliste.zeichne();
 			System.out.println("kiajio");
 			response.sendRedirect("SportfestEingabeMaskeSportart.jsp");
 			
@@ -39,7 +39,7 @@ public class WebServletEingabeMaske extends HttpServlet {
 		 if(b==true){
 			 System.out.println("JUHUUUUU");
 			 
-			 response.sendRedirect("../Sportfest/index.php");
+			 response.sendRedirect("../index.jsp");
 		 } else{System.out.println("SCHEIßE");}
 
 	 } else if (request.getParameter("button3") != null) {

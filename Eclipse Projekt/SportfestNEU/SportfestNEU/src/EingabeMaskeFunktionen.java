@@ -64,13 +64,13 @@ public class EingabeMaskeFunktionen{
 	public static boolean ergebnisEintragen(String Sprinten, String Dauerlauf, String Weitwurf, String Weitsprung, String Kugelstoﬂen, String Schlagball){
 		try {
 			String[] sportarten = {"Sprinten", "Dauerlauf", "Weitwurf", "Weitsprung", "Kugelstoﬂen", "Schlagball"};
-			double[] ergebnisse = {Double.parseDouble(Sprinten), Double.parseDouble(Dauerlauf), Double.parseDouble(Weitwurf), Double.parseDouble(Weitsprung), Double.parseDouble(Kugelstoﬂen), Double.parseDouble(Schlagball)};
+			double[] ergebnisse = {Double.parseDouble(Sprinten), Double.parseDouble(Dauerlauf), Double.parseDouble(Weitwurf), Double.parseDouble(Weitsprung)};
 			int pktSprint = hundertMeterSprint(Double.parseDouble(Sprinten));
-			int pktDauerlauf = dreitausendMeter(sekundenAusMinuten(Double.parseDouble(Dauerlauf)));
+			int pktDauerlauf =dreitausendMeter(Integer.parseInt(Dauerlauf));
 			int pktWeitwurf = 200 - ((int)(Double.parseDouble(Weitwurf)*-1+30.0/0.1*10));
-			int pktWeitsprung = weitsprung(Double.parseDouble(Weitsprung));
-			int pktKugelstoﬂen = kugelstossen(Double.parseDouble(Kugelstoﬂen));
-			int pktSchlagball = schlagball(Double.parseDouble(Schlagball));
+			int pktWeitsprung = weitsprung(Integer.parseInt(Weitsprung));
+			int pktKugelstoﬂen = kugelstossen(Integer.parseInt(Kugelstoﬂen));
+			int pktSchlagball = schlagball(Integer.parseInt(Schlagball));
 			
 			int[] punkte = new int[6];
 			punkte[0] = pktSprint;
@@ -153,11 +153,11 @@ public class EingabeMaskeFunktionen{
 		
 	}
 	
-	public static int hundertMeterSprint (double sekunden){
-		   if (sekunden < 10.5) {
+	private static int hundertMeterSprint (double sekunden){
+		   if (sekunden > 23.4) {
 		     return 200;
 		     }
-		   else if (sekunden > 23.4){
+		   else if (sekunden < 10.5){
 		     return 0;
 		   }
 		   else {
@@ -165,14 +165,14 @@ public class EingabeMaskeFunktionen{
 		   }
 		 }
 
-		 public static int dreitausendMeter (int sekunden){
+		 private static int dreitausendMeter (int sekunden){
 		   if (sekunden > 492) {
 		     return (int) (873*Math.pow(Math.E, -0.003*sekunden));
 		   }
 		   else return 200;
 		 }
 
-		 public static int weitsprung (double meter){
+		 private static int weitsprung (int meter){
 		   if (meter < 1.33){
 		     return 0;
 		   }
@@ -184,7 +184,7 @@ public class EingabeMaskeFunktionen{
 		   }
 		 }
 
-		 public static int schlagball (double meter){
+		 private static int schlagball (int meter){
 		   if (meter < 8){
 		     return 0;
 		   }
@@ -196,7 +196,7 @@ public class EingabeMaskeFunktionen{
 		   }
 		 }
 
-		 public static int kugelstossen (double meter){
+		 private static int kugelstossen (int meter){
 		   if (meter < 2.1){
 		     return 0;
 		   }
@@ -206,14 +206,6 @@ public class EingabeMaskeFunktionen{
 		   else {
 		     return (int)(10.87 * meter - 22.84);
 		   }
-		 }
-		 
-		 public static int sekundenAusMinuten(double d){
-			 double zeit = d;
-			 int min = (int) zeit;
-			 int sek = (int)(zeit-min)*100  + min*60;
-			 return sek;
-			 
 		 }
 	
 }
