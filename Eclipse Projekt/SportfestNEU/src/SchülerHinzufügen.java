@@ -13,7 +13,7 @@ public class SchülerHinzufügen {
 			Statement myStmt = myCon.createStatement();
 			
 			String [] vorname = {"Jan", "Thomas", "Jens", "Maurice", "Thorsten", "David", "Florian", "Leon", "Jana", "Jaqueline", "Sabrina", "Linda", "Lena", "Verena", "Sandra", "Anna", "Simon", "Hannah", "Kevin", "Felix", "David", "Johann", "Christina", "Johanna", "Martits", "Carmen", "Sarah", "Jil", "Michelle", "Judith"};
-			String [] nachname = {"Meier", "Beck", "Tank", "Groß", "Schmidt", "Skalitz", "Schröter", "Wilhem", "Steinmetz", "Kaufmann", "Einhaus", "Althoff", "Gößling", "Wyink", "Dynak", "Knorr", "Blume", "Eck", "Baumann", "Groß", "Böhrer", "Trogant", "Debus", "Lammertz", "Brenner"};
+			String [] nachname = {"Meier", "Beck", "Tank", "Groß", "Schmidt", "Skalitz", "Schröter", "Wilhem", "Steinmetz", "Kaufmann", "Einhaus", "Althoff", "Gößling", "Wyink", "Dynak", "Knorr", "Blume", "Eck", "Baumann", "Groß", "Böhrer", "Trogant", "Debus", "Lammertz", "Brenner", "Kirchhoff", "Kohlen", };
 			String sq1 = "";
 			
 			for(int i = 0; i<500;i++){
@@ -35,7 +35,7 @@ public class SchülerHinzufügen {
 				}
 			sq1 = "insert into schuelersportfest " +
 								" (SchuelerNachname, SchuelerVorname, SchuelerStufe, SchuelerKlasse) " +
-								" values('"+ vorname[rVN] + "', '" + nachname[rNN] + "', '"+ (int)(Math.random()*7+6) + "','" + klasse + "')";
+								" values('"+ vorname[rVN] + "', '" + nachname[rNN] + "', '"+ (int)((Math.random()*8)+5) + "','" + klasse + "')";
 				
 				myStmt.executeUpdate(sq1);
 			}

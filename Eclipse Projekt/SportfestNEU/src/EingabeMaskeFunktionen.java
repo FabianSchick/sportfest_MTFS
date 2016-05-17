@@ -10,8 +10,8 @@ public class EingabeMaskeFunktionen{
 	
 	static SchuelerObjekt uebergabe;	
 	public static String pruefeDaten(String vorname, String nachname, String stufe, String klasse){
-	
 		try{
+		AusgabeBestenliste.bestenListeSportfest();
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/newsblog", "root", "secret");
 		

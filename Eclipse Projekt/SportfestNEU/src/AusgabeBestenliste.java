@@ -11,10 +11,8 @@ import java.sql.Statement;
 import javax.imageio.ImageIO;
 
 public class AusgabeBestenliste {
-    
-    public static void zeichne(){
-    	BestenlisteObjekt ausgabe = bestenListeSportfestGesamt();
-    	
+
+    public static void zeichne(BestenlisteObjekt ausgabe, String k, String p){
     	BufferedImage bild;
 		try {
 			System.out.println("1");
@@ -49,9 +47,10 @@ public class AusgabeBestenliste {
 			
 			g.dispose();
 			
+			String pfad = "C:/Users/Fabian/workspace/SportfestNEU/Webcontent/bilder/anzeige_" + k + "_" + p +".jpg";
 
 
-			File outputfile = new File("C:/Users/Fabian/workspace/SportfestNEU/Webcontent/bilder/anzeige2.jpg");
+			File outputfile = new File(pfad);
 			ImageIO.write(bild, "jpg", outputfile);
 
 
@@ -63,7 +62,7 @@ public class AusgabeBestenliste {
 
 	}
 	
-	public static BestenlisteObjekt bestenListeSportfestGesamt(){
+	public static void bestenListeSportfest(){
 		int[] id = new int[3];
 		int[] punkte = new int[3];
 		String [] vorname = new String[3];
@@ -74,33 +73,85 @@ public class AusgabeBestenliste {
 		BestenlisteObjekt ausgabe;
 		
 		try{
+			String[] sportarten = {"Sprinten", "Dauerlauf", "Weitwurf", "Weitsprung", "Kugelstoﬂen", "Schlagball"};
+			String[] ansichten = {"5", "6", "7", "8", "9", "10", "11", "12"};
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/newsblog", "root", "secret");
 			
 			Statement myStmt = myCon.createStatement();
-			myStmt.executeUpdate("CREATE VIEW V_SportfestErgebnisse AS SELECT schuelersportfest.schuelerID, ergebnissesportfest.sportfestID, schuelersportfest.SchuelerNachname, schuelersportfest.SchuelerVorname, schuelersportfest.SchuelerStufe, schuelersportfest.SchuelerKlasse, ergebnissesportfest.Punkte FROM schuelersportfest JOIN ergebnissesportfest ON schuelersportfest.schuelerID = ergebnissesportfest.SchuelerID");	
+			myStmt.executeUpdate("CREATE VIEW V_SportfestErgebnisse AS SELECT schuelersportfest.schuelerID, ergebnissesportfest.sportfestID, schuelersportfest.SchuelerNachname, schuelersportfest.SchuelerVorname, schuelersportfest.SchuelerStufe, schuelersportfest.SchuelerKlasse, ergebnissesportfest.Punkte, ergebnissesportfest.sportart, ergebnisseSportfest.ergebnis FROM schuelersportfest JOIN ergebnissesportfest ON schuelersportfest.schuelerID = ergebnissesportfest.SchuelerID");	
 
-			ResultSet myRes = myStmt.executeQuery("Select schuelerID, SchuelerNachname, SchuelerVorname, SchuelerStufe, SchuelerKlasse, sum(Punkte) From V_SportfestErgebnisse WHERE sportfestID = 1 group by schuelerID Order by sum(punkte) DESC");
-			
-			int i = 0;
-			while(myRes.next()&& i<3){
-				id[i] = myRes.getInt(1);
-				punkte[i] = myRes.getInt(6);
-				vorname[i] = myRes.getString(3);
-				nachname[i] = myRes.getString(2);
-				stufe[i] = myRes.getString(4);
-				klasse[i] = myRes.getString(5);
-				i++;
+			for(int i = 0; i<ansichten.length;i++){
+				for(int j = 0; j<sportarten.length;j++){
+					ResultSet myRes = myStmt.executeQuery("Select schuelerID, SchuelerNachname, SchuelerVorname, SchuelerStufe, SchuelerKlasse, Punkte, Ergebnis From V_SportfestErgebnisse WHERE sportfestID = 1 AND Sportart = '" + sportarten[j] + "' AND SchuelerStufe = '" + ansichten[i] +"' group by schuelerID Order by punkte DESC");
+				
+					int k = 0;
+					while(myRes.next()&& k<3){
+						id[k] = myRes.getInt(1);
+						punkte[k] = myRes.getInt(6);
+						vorname[k] = myRes.getString(3);
+						nachname[k] = myRes.getString(2);
+						stufe[k] = myRes.getString(4);
+						klasse[k] = myRes.getString(5);
+						k++;
+					}
+					
+								
+					ausgabe = new BestenlisteObjekt(id, punkte, vorname, nachname, stufe, klasse);
+					zeichne(ausgabe, ansichten[i], sportarten[j]);
+				}
 			}
+			myStmt.execute("DROP VIEW V_SportfestErgebnisse");
+			myCon.close();
+			bestenListeSportfestGesamt();
+			} catch(Exception e){
+				e.printStackTrace();
+			}
+		
+	}
+	
+	public static void bestenListeSportfestGesamt(){
+		int[] id = new int[3];
+		int[] punkte = new int[3];
+		String [] vorname = new String[3];
+		String[] nachname = new String[3];
+		String[] stufe = new String[3];
+		String[] klasse = new String[3];
+		
+		BestenlisteObjekt ausgabe;
+		
+		try{
+			String[] sportarten = {"Sprinten", "Dauerlauf", "Weitwurf", "Weitsprung", "Kugelstoﬂen", "Schlagball"};
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/newsblog", "root", "secret");
+			
+			Statement myStmt = myCon.createStatement();
+			myStmt.executeUpdate("CREATE VIEW V_SportfestErgebnisse AS SELECT schuelersportfest.schuelerID, ergebnissesportfest.sportfestID, schuelersportfest.SchuelerNachname, schuelersportfest.SchuelerVorname, schuelersportfest.SchuelerStufe, schuelersportfest.SchuelerKlasse, ergebnissesportfest.Punkte, ergebnissesportfest.sportart, ergebnisseSportfest.ergebnis FROM schuelersportfest JOIN ergebnissesportfest ON schuelersportfest.schuelerID = ergebnissesportfest.SchuelerID");	
+
+				for(int j = 0; j<sportarten.length;j++){
+					ResultSet myRes = myStmt.executeQuery("Select schuelerID, SchuelerNachname, SchuelerVorname, SchuelerStufe, SchuelerKlasse, Punkte, Ergebnis From V_SportfestErgebnisse WHERE sportfestID = 1 AND Sportart = '" + sportarten[j] + "' group by schuelerID Order by punkte DESC");
+				
+					int k = 0;
+					while(myRes.next()&& k<3){
+						id[k] = myRes.getInt(1);
+						punkte[k] = myRes.getInt(6);
+						vorname[k] = myRes.getString(3);
+						nachname[k] = myRes.getString(2);
+						stufe[k] = myRes.getString(4);
+						klasse[k] = myRes.getString(5);
+						k++;
+					}
+					
+								
+					ausgabe = new BestenlisteObjekt(id, punkte, vorname, nachname, stufe, klasse);
+					zeichne(ausgabe, "gesamt", sportarten[j]);
+				}
 			
 			myStmt.execute("DROP VIEW V_SportfestErgebnisse");
 
-				
-			ausgabe = new BestenlisteObjekt(id, punkte, vorname, nachname, nachname, klasse);
-			return ausgabe;
+			myCon.close();
 			} catch(Exception e){
 				e.printStackTrace();
-				return null;
 			}
 		
 	}

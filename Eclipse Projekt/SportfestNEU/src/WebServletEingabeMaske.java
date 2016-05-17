@@ -23,7 +23,6 @@ public class WebServletEingabeMaske extends HttpServlet {
 		}
 		else if(s.equals("Bitte tragen Sie die Daten ein")){
 			System.out.println("BIS hierher klappt es!");
-			//AusgabeBestenliste.zeichne();
 			System.out.println("kiajio");
 			response.sendRedirect("SportfestEingabeMaskeSportart.jsp");
 			

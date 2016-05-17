@@ -20,8 +20,8 @@ public class ErgebnisBefuellen {
 			double ergebisse[] = ergebnis();
 			int punkte [] = punkte(ergebisse);
 			for(int i = 0;i<6;i++){
-			String sq1 = "insert into ergebnissesportfest (EintragsID, SchuelerID, sportfestID, Sportart, Ergebnis, Punkte) Values (NULL, " + myRes.getString(1) +  ", 1, '" + sportarten[i] + "', '" + ergebisse[i] + "', '" + punkte[i] + "')";
-			update.executeUpdate(sq1);
+				String sq1 = "insert into ergebnissesportfest (EintragsID, SchuelerID, sportfestID, Sportart, Ergebnis, Punkte) Values (NULL, " + myRes.getString(1) +  ", 1, '" + sportarten[i] + "', '" + ergebisse[i] + "', '" + punkte[i] + "')";
+				update.executeUpdate(sq1);
 			}
 		}
 				}catch(Exception e){
