@@ -5,7 +5,7 @@
 
         Spaß bei Seite: das Feld hat jetzt eine dynamische Länge und erweitert sich,
           wenn mehr Inhalt reinkommt!
-		  
+
 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -19,19 +19,19 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="eisbaerTest.jpg" alt="Chania">
+      <img src="Sport1.jpg" alt="Sprint">
     </div>
 
     <div class="item">
-      <img src="CatTest.jpg" alt="Chania">
+      <img src="Sport2.jpg" alt="Weitsprung">
     </div>
 
     <div class="item">
-      <img src="eisbaerTest.jpg" alt="Flower">
+      <img src="Sport3.jpg" alt="Sprint">
     </div>
 
     <div class="item">
-      <img src="CatTest.jpg" alt="Flower">
+      <img src="Sport4.jpg" alt="Weitlauf">
     </div>
   </div>
 
