@@ -13,7 +13,7 @@
 
       if($db->login($mail, $passwort) === TRUE){
         echo"Erfolgreich eingeloggt";
-        header("refresh:0;url="index.php?section=Startseite");
+        header("refresh:0;url=index.php?section=Startseite");
       } else{
         echo"Einloggen fehlgeschlagen";
       }
