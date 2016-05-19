@@ -15,6 +15,8 @@
   }
 ?>
 
+<?php if($db->isUserLoggedIn()){?>
+
 <h1> News Verfassen </h1>
 <form action="index.php?section=Verfassen" method="POST">
   <table border="0">
@@ -41,3 +43,7 @@
   </table>
 
 </form>
+
+<?php } else{?>
+	<a href="index.php?section=Lehrer">Bitte melden Sie sich an</a>
+<?php } ?>

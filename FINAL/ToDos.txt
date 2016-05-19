@@ -1,5 +1,0 @@
--Canvas Grafik einbinden
--ggf. anderer Hintergrund
--menü  verbessern
-- meldung bei nicht erfolgreichem eintragen schueler ausgeben
-Seiten automatisch refreshen nach login

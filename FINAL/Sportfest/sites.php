@@ -4,6 +4,7 @@
   elseif($section == "Logout") {include ("Logout.php");}
   elseif($section == "Verfassen") {include ("Verfassen.php");}
   elseif($section == "Kontakt") {include ("Kontakt.php");}
-  elseif($section == "Bildungsmöglichkeiten") {include ("Bildungsmöglichkeiten.php");}
+  elseif($section == "Events") {include ("Events.php");}
+  elseif($section == "Impressum") {include ("Impressum.php");}
   else {include ("Startseite.php");}
 ?>

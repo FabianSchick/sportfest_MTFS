@@ -64,6 +64,16 @@
 
       return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+	
+	function getAllEvents($sort = "DESC"){
+      if($sort != "ASC" && $sort != "DESC"){
+        return -1;
+      }
+      $stmt = self::$_db->prepare("SELECT * FROM events ORDER BY EventID " . $sort);
+      $stmt->execute();
+
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     function eintragenNews($autor, $titel, $datum, $news){
       $stmt = self::$_db->prepare("INSERT INTO news VALUES('', :Autor, :Ueberschrift, :Datum, :Inhalt)");

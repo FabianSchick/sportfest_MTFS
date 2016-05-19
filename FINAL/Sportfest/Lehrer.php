@@ -1,7 +1,3 @@
-<h1>Hier ist der Lehrer Login<h1/>
-
-
-
 <?php
 
   if($db->isUserLoggedIn() === TRUE){
@@ -13,13 +9,14 @@
 
       if($db->login($mail, $passwort) === TRUE){
         echo"Erfolgreich eingeloggt";
-        header("refresh:0;url="index.php?section=Startseite");
+        header("refresh:0;url=index.php?section=Startseite");
       } else{
         echo"Einloggen fehlgeschlagen";
       }
     }
 ?>
 
+<h1>Hier ist der Lehrer Login<h1/>
 <form action="index.php?section=Lehrer" method="POST">
   <table>
     <tr>

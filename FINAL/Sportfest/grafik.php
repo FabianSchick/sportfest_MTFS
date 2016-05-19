@@ -1,6 +1,3 @@
-<html>
- <head>
-  <meta charset="utf-8"/>
   <script type="application/javascript">
   var bool = 3;
     function draw() {
@@ -9,7 +6,7 @@
       if (canvas.getContext) {
         var ctx = canvas.getContext("2d");
 		
-        ctx.fillStyle = "rgb(200,0,0)";
+        ctx.fillStyle = "rgb(0,0,0)";
         ctx.fillRect (2, 248, 246, 2);
 
         ctx.fillStyle = "rgb(0, 0, 0)";
@@ -25,6 +22,8 @@
 		ctx.lineTo(45,208);	
 		ctx.lineTo(45,208);
 		ctx.lineTo(65,248);
+		ctx.moveTo(100,248);
+		ctx.lineTo(248, 220);
 		ctx.closePath();
 		ctx.stroke();
 
@@ -71,29 +70,29 @@
 			  ball.draw();
 			  arme.draw();
 			  ctx.fillStyle = "rgb(0, 0, 0)";
-        ctx.fillRect (2, 248, 246, 2);
+				ctx.fillRect (2, 248, 246, 2);
 
-        ctx.fillStyle = "rgb(0, 0, 0)";
-        ctx.fillRect (200, 80, 50, 2);
-		
-		ctx.fillStyle = "rgb(0, 0, 0)";
-        ctx.fillRect (248, 40, 2, 210);
-		
-		ctx.beginPath();
-		ctx.moveTo(25,248);
-		ctx.lineTo(45,208);
-		ctx.lineTo(45,158);
-		ctx.lineTo(45,208);	
-		ctx.lineTo(45,208);
-		ctx.lineTo(65,248);
-		ctx.moveTo(100,248);
-		ctx.lineTo(248, 220);
-		ctx.closePath();
-		ctx.stroke();
+				ctx.fillStyle = "rgb(0, 0, 0)";
+				ctx.fillRect (200, 80, 50, 2);
+				
+				ctx.fillStyle = "rgb(0, 0, 0)";
+				ctx.fillRect (248, 40, 2, 210);
+				
+				ctx.beginPath();
+				ctx.moveTo(25,248);
+				ctx.lineTo(45,208);
+				ctx.lineTo(45,158);
+				ctx.lineTo(45,208);	
+				ctx.lineTo(45,208);
+				ctx.lineTo(65,248);
+				ctx.moveTo(100,248);
+				ctx.lineTo(248, 220);
+				ctx.closePath();
+				ctx.stroke();
 
-		ctx.moveTo(68,138);
-		ctx.arc(48, 138, 20, 0, 2 * Math.PI);
-		ctx.stroke();
+				ctx.moveTo(68,138);
+				ctx.arc(48, 138, 20, 0, 2 * Math.PI);
+				ctx.stroke();
 			  
 			  if(ball.x==230){
 				  bool=0;
@@ -212,10 +211,5 @@
 			ball.draw();       
 			arme.draw();       
 				               
-				}              
-  </script>                    
- </head>                       
- <body onload="draw();">       
-   <canvas id="canvas" width="250" height="250"></canvas>
- </body>                       
-</html>                        
+}              
+  </script>                                

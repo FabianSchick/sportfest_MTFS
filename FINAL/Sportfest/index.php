@@ -1,5 +1,7 @@
 <?php
+ 
   session_start();
+ 
 
   if(isset($_GET["section"]))
   {
@@ -27,19 +29,11 @@
 <head>
   <title>Schul-Website</title>
 </head>
-
-
-<body>
+  
+<body onload = "draw();">
 
 <div class="container">
-
-
-
-
-
-    <header class = "shadow">
-
-    </header>
+ 
       <nav class="navbar navbar-inverse ">
 	  
         

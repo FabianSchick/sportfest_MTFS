@@ -1,10 +1,17 @@
+<?php include("grafik.php"); ?>
+<h2>Herzlich Willkommen im Sportfest Bereich.</h2>
+<div class="container text-center">
+<canvas id="canvas" width="250" height="250"></canvas>
+</div>
+</br>
+In diesem Bereich finden Sie Informationen über unser alljährliches Sportfest.</br>
 
-        hier können wir jeglichen Mist rein schreiben.<br>
-        Ein Pferd hat sich im Spiegel angeschaut und gemerkt, dass es ein langes
-          Gesicht hat<br> <br><br><br><br>
+Die Schüler müssen jedes Jahr an dem Sportfest teilnehmen. </br>
+Die Disziplinen sind: Sprinten, Weitwurf, Schlagball, Weitsprung, 3000m Lauf und Kugelstoßen.</br>
+Dieses Jahr fand das Sportfest am 19.05 statt. Für Weitere Informationen gucken Sie sich die Seiten unter diesem Tab an.
+</br>
+</br>
 
-        Spaß bei Seite: das Feld hat jetzt eine dynamische Länge und erweitert sich,
-          wenn mehr Inhalt reinkommt!
 
 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">

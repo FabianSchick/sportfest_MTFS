@@ -5,7 +5,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="index.php?section=Startseite">Schulwebseite</a>
     </div>
 	
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -14,8 +14,8 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="index.php?section=Startseite">Über uns</a></li>
-            <li><a href="../SportfestNEU/Bildungsmoeglichkeiten.html">Bildungsmöglichkeiten</a></li>
-            <li><a href="index.php?section=Lehrer">Lehrer</a></li>
+            <li><a href="../SportfestNEU/Bildungsmoeglichkeiten.jsp">Bildungsmöglichkeiten</a></li>
+            <li><a href="../SportfestNEU/InfoLehrer.jsp">Lehrer</a></li>
             <li><a href="index.php?section=Impressum">Impressum</a></li>
           </ul>
     </li>
@@ -51,7 +51,7 @@
 	<?php } ?>
 	
 	<?php if(($db->isUserLoggedIn())) {?>
-		</li class = "navbar-right"><a href="index.php?section=Logout"><span class="glyphicon glyphicon-log-in"></span>&nbsp Abmelden</a></li>
+		<li class = "navbar-right"><a href="index.php?section=Logout"><span class="glyphicon glyphicon-log-in"></span>&nbsp Abmelden</a></li>
 	<?php } ?>
       </ul>
     </div>
