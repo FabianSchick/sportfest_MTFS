@@ -13,8 +13,6 @@ Telefax: 030/12345679</br>
 e-Mail: e-Mail@mustermann.de</br>
 Website: www.mustermann.de</br></br>
 
-Bei redaktionellen Inhalten zusätzlich:</br></br>
-
 Verantwortlich nach § 6 Abs.2 MDStV</br></br>
 
 Paul Schreiber</br>

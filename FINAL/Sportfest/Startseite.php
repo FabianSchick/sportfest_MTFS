@@ -1,5 +1,5 @@
 <h2>Herzlich Willkommen auf unserer Webseite!</h2>
-Hier finden Sie aktuelle Informationen, über unsere Schule und bildungspolitische Themen aus NRW.</br></br>
+Hier finden Sie aktuelle Informationen über unsere Schule und bildungspolitische Themen aus NRW.</br></br>
 <div class="list-group">
 <?php
   $entries = $db->getAllEntries();
